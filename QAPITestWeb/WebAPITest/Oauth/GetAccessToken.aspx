@@ -1,16 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GetAccessToken.aspx.cs" Inherits="WebAPITest.Oauth.GetAccessToken" %>
+﻿<%@ Page Title="主页" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+    CodeBehind="GetAccessToken.aspx.cs" Inherits="WebAPITest.Oauth.GetAccessToken" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    
     <div>
-        
+        <p id="info"><asp:Label runat="server" ID="txtMsg"></asp:Label></p>
+        <div class="fieldset"></div>
+        <p id="userInfo"><asp:Label runat="server" id="txtUserInfo"></asp:Label></p>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>

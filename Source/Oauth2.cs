@@ -67,8 +67,8 @@
                             new Parameter("client_secret",this.Oauthkey2.appSecret)
                     },
                 null);
-            Oauthkey2.tokenKey = StringParserHelper.QueryString(result, "access_token");
-            Oauthkey2.refreshKey = StringParserHelper.QueryString(result, "refresh_token");
+
+            Oauthkey2.ParseToken(result);
 
             return Oauthkey2.tokenKey;
         }

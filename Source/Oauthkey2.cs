@@ -95,6 +95,11 @@
 
         public bool ParseToken(string response)
         {
+            if (response.Contains("errorCode") && StringParserHelper.QueryString(response, "errorCode") != "0")
+            {
+                throw new Exception(StringParserHelper.QueryString(response, "errorMsg"));
+            }
+
             this.code = StringParserHelper.QueryString(response, "code");
             this.openId = StringParserHelper.QueryString(response, "openid");
             this.tokenKey = StringParserHelper.QueryString(response, "access_token");

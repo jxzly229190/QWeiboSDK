@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WebAPITest.Oauth
 {
@@ -15,22 +10,25 @@ namespace WebAPITest.Oauth
         {
             if (!IsCallback)
             {
-                var queryString = "";
-
                 Oauthkey2 oauthKey = new Oauthkey2(
                     StringParserHelper.GetConfig("AppKey"),
                     StringParserHelper.GetConfig("AppSercet"));
 
                 oauthKey.ParseToken(this.Request.Url.ToString());
-
                 oauthKey.callbackUrl = StringParserHelper.GetConfig("CallbackUrl");
 
                 var oauth2 = new Oauth(oauthKey);
-                var url = oauth2.GetAccessToken();
+                var accessToken = oauth2.GetAccessToken();
 
-                var user = new QWeiboSDK.user(oauthKey, "UTF-8").info();
+                if (string.IsNullOrWhiteSpace(accessToken))
+                {
+                    this.Response.Write("获取Access_Token失败");
+                }
+                this.Session["accessToken"] = accessToken;
+                txtMsg.Text = "授权成功，accessToken:" + accessToken;
+                var user = new user(oauthKey, "UTF-8").info();
 
-                this.Response.Write(user);
+                txtUserInfo.Text = "账户信息：\r\n" + user;
             }
         }
     }
