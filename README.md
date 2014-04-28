@@ -1,7 +1,7 @@
 QWeiboSDK
 =========
 
-此项目基于binaron同学的腾讯微博SDK基础上修改而来，[原项目链接]：https://github.com/binaron/CSharpSDK4TencentWeibo。
+此项目基于binaron同学的腾讯微博SDK基础上修改而来，[原项目传送门](https://github.com/binaron/CSharpSDK4TencentWeibo)</br>。
 
 ***
 
